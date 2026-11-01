@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#000000" />
+    <title>Lookabout</title>
+    <!-- Na GitHub Pages běží web v podadresáři /lookabout/ (podle názvu repa), lokálně v kořeni. -->
+    <script>document.write('<base href="' + (location.pathname.startsWith('/lookabout/') ? '/lookabout/' : '/') + '" />');</script>
+    <link href="_framework/dotnet.c3bli0t5qz.js" rel="preload" as="script" fetchpriority="high" crossorigin="anonymous" integrity="sha256-aI1O4A9hFThHdEgA0H2AeppIY2A3A/ftKXQlZpzaaCc=" />
+    <link rel="stylesheet" href="css/app.css" />
+    <!-- If you add any scoped CSS files, uncomment the following to load them
+    <link href="WindowSeat.Web.styles.css" rel="stylesheet" /> -->
+    <link href="manifest.webmanifest" rel="manifest" />
+    <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png" />
+    <script type="importmap">{
+  "imports": {
+    "./_framework/blazor.webassembly.js": "./_framework/blazor.webassembly.w3qd1tpl0e.js",
+    "./_framework/dotnet.js": "./_framework/dotnet.c3bli0t5qz.js",
+    "./_framework/dotnet.native.js": "./_framework/dotnet.native.bjoj0wmylw.js",
+    "./_framework/dotnet.runtime.js": "./_framework/dotnet.runtime.5nc8i5dl74.js"
+  },
+  "scopes": {},
+  "integrity": {
+    "./_framework/blazor.webassembly.js": "sha256-lDXsDYFgm62F+YUvxES7IOTCXYpiHpU3uR45YdC6mq4=",
+    "./_framework/blazor.webassembly.w3qd1tpl0e.js": "sha256-lDXsDYFgm62F+YUvxES7IOTCXYpiHpU3uR45YdC6mq4=",
+    "./_framework/dotnet.c3bli0t5qz.js": "sha256-aI1O4A9hFThHdEgA0H2AeppIY2A3A/ftKXQlZpzaaCc=",
+    "./_framework/dotnet.js": "sha256-aI1O4A9hFThHdEgA0H2AeppIY2A3A/ftKXQlZpzaaCc=",
+    "./_framework/dotnet.native.bjoj0wmylw.js": "sha256-CZ0IVZkLTIvee7n1yVvOitlJWNdj/YjaFgpMgliIM64=",
+    "./_framework/dotnet.native.js": "sha256-CZ0IVZkLTIvee7n1yVvOitlJWNdj/YjaFgpMgliIM64=",
+    "./_framework/dotnet.runtime.5nc8i5dl74.js": "sha256-/3dBg9sj1yLD3h0PDMHnNUXWs/2zWwIMEzom1Xz3Q40=",
+    "./_framework/dotnet.runtime.js": "sha256-/3dBg9sj1yLD3h0PDMHnNUXWs/2zWwIMEzom1Xz3Q40="
+  }
+}</script>
+</head>
+
+<body>
+    <div id="app">
+        <svg class="loading-progress">
+            <circle r="40%" cx="50%" cy="50%" />
+            <circle r="40%" cx="50%" cy="50%" />
+        </svg>
+        <div class="loading-progress-text"></div>
+    </div>
+
+    <div id="blazor-error-ui">
+        Něco se pokazilo.
+        <a href="." class="reload">Načíst znovu</a>
+        <span class="dismiss">🗙</span>
+    </div>
+    <script src="js/permissions.js"></script>
+    <script src="_framework/blazor.webassembly.w3qd1tpl0e.js"></script>
+    <script>
+        // Když převezme řízení nová verze (service worker s novými soubory), načíst ji; při první instalaci ne.
+        if (navigator.serviceWorker.controller) {
+            let reloaded = false;
+            navigator.serviceWorker.addEventListener('controllerchange', () => {
+                if (!reloaded) {
+                    reloaded = true;
+                    location.reload();
+                }
+            });
+        }
+        navigator.serviceWorker.register('service-worker.js', { updateViaCache: 'none' });
+    </script>
+</body>
+
+</html>
